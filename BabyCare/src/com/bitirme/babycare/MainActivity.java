@@ -1,3 +1,10 @@
+/*
+ * Created by 
+ * Bekir Gokay Erim
+ * Burak Karakus
+ * 
+ * */
+
 package com.bitirme.babycare;
 
 import android.os.Bundle;
