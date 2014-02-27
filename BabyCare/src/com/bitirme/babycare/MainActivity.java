@@ -20,6 +20,10 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+<<<<<<< HEAD
+=======
+		WifiP2pManager p2p=null;
+>>>>>>> 19586e5692e97061942cb5a722dadbafe534b039
 		
 		
 		
