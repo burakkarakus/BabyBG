@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		WifiP2pManager p2p=null;
-		
+		int naber;
 		
 		
 		
