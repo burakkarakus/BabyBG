@@ -3,14 +3,16 @@
  * Bekir Gokay Erim
  * Burak Karakus
  * 27 02 2014
- * gokay
  * */
 
 package com.bitirme.babycare;
 
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 
@@ -18,6 +20,11 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		WifiP2pManager p2p=null;
+		p2p.
+		
+		
+		
 	}
 
 	@Override
@@ -26,5 +33,8 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	
+	
 
 }
