@@ -7,11 +7,13 @@
 
 package com.bitirme.babycare;
 
-import android.net.wifi.p2p.WifiP2pManager;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
@@ -20,8 +22,33 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		Button btn_baby = (Button) findViewById(R.id.button_baby);
+		Button btn_parrent = (Button) findViewById(R.id.button_parrent);
+		
+		btn_baby.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this, Baby.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		btn_parrent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this, Parrent.class);
+				startActivity(intent);
+				
+			}
+		});
+		
 
-		WifiP2pManager p2p=null;
+		
 		
 	}
 

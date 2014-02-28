@@ -9,12 +9,21 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/connect"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_baby"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="157dp"
-        android:text="Bağlan" />
+        android:layout_marginTop="105dp"
+        android:text="@string/baby" />
+
+    <Button
+        android:id="@+id/button_parrent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button_baby"
+        android:layout_below="@+id/button_baby"
+        android:layout_marginTop="110dp"
+        android:text="@string/parrent" />
 
 </RelativeLayout>

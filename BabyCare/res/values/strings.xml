@@ -4,5 +4,9 @@
     <string name="app_name">BabyCare</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="parrent">Evebeyn</string>
+    <string name="baby">Bebek</string>
+    <string name="wait_connection">Evebeyn Bağlantısi Bekleniyor.</string>
+    <string name="make_connection">Bebek Telsizine Bağlan</string>
 
 </resources>
