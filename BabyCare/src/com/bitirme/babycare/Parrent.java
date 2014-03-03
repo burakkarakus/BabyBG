@@ -52,13 +52,28 @@ public class Parrent extends Activity {
 		
 		
 	}
-	@Override
+	
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
-		return super.onCreateOptionsMenu(menu);
-		
-		
-		
-	}
+        menu.add(0, 0, 0, "Refresh");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        mainWifi.startScan();
+        mainText.setText("Starting Scan");
+        return super.onMenuItemSelected(featureId, item);
+    }
+
+    protected void onPause() {
+        unregisterReceiver(receiverWifi);
+        super.onPause();
+    }
+
+    protected void onResume() {
+        registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+        super.onResume();
+    }
+	
+	
 
 }
