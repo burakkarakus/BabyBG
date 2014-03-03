@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this, Baby.class);
-				startActivity(intent);
+				MainActivity.this.startActivity(intent);
 				
 			}
 		});

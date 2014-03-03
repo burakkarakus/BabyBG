@@ -15,7 +15,7 @@
         android:layout_marginTop="178dp" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/mainText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/progress_wait_connection"
