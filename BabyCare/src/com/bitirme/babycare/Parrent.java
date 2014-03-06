@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -38,7 +39,7 @@ public class Parrent extends Activity {
 				// TODO Auto-generated method stub
 				//Client olarak server arayacak 
 				//ARA TCP Client Server Code
-				
+				Log.i("brk","onClick");
 				mainText = (TextView) findViewById(R.id.mainText);
 			       mainWifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 			       receiverWifi = new WifiReceiver();
@@ -54,22 +55,26 @@ public class Parrent extends Activity {
 	}
 	
 	public boolean onCreateOptionsMenu(Menu menu) {
+		Log.i("brk","onRefresh");
         menu.add(0, 0, 0, "Refresh");
         return super.onCreateOptionsMenu(menu);
     }
 
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    	Log.i("brk","onMenuItemSelected");
         mainWifi.startScan();
         mainText.setText("Starting Scan");
         return super.onMenuItemSelected(featureId, item);
     }
 
     protected void onPause() {
+    	Log.i("brk","onPause");
         unregisterReceiver(receiverWifi);
         super.onPause();
     }
 
     protected void onResume() {
+    	Log.i("brk","onResume");
         registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
         super.onResume();
     }
