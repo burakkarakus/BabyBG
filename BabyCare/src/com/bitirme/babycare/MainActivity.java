@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(MainActivity.this, Baby.class);
+				Intent intent = new Intent(MainActivity.this, client.class);
 				MainActivity.this.startActivity(intent);
 				
 			}
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(MainActivity.this, Parrent.class);
+				Intent intent = new Intent(MainActivity.this, server.class);
 				startActivity(intent);
 				
 			}
