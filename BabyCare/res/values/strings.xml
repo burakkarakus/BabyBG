@@ -8,5 +8,8 @@
     <string name="baby">Bebek</string>
     <string name="wait_connection">Evebeyn Bağlantısi Bekleniyor.</string>
     <string name="make_connection">Bebek Telsizine Bağlan</string>
+    <string name="radio_Coklu">Çoklu Cihaz Bağlantısı(Bebek-Ebeveyn)</string>
+    <string name="radio_Tekli">Tek Cihaz(Bebek)</string>
+    <string name="btn_Sec">Seç</string>
 
 </resources>
