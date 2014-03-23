@@ -12,6 +12,10 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -38,7 +42,10 @@
             android:label="Server"></activity>
         <activity android:name=".client"
             android:label="Client"></activity>
-        
+        <activity
+            android:name="com.bitirme.babycare.BebekTekCihaz"
+            android:label="Bebek Cihazı"
+            ></activity>
         
     </application>
 

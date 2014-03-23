@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/txtNumara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/labelTelNo"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <RadioGroup
+        android:id="@+id/radioUyariTuruGrup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnBebekTekBaslat"
+        android:layout_alignRight="@+id/txtNumara"
+        android:layout_marginRight="18dp" >
+
+        <RadioButton
+            android:id="@+id/radioSMS"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:checked="true"
+            android:text="@string/radio_SMS"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textColor="@color/text_selector"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <RadioButton
+            android:id="@+id/radioArama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="77dp"
+            android:text="@string/radio_Arama"
+            android:textColor="@color/text_selector"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/radioUyariTuruGrup"
+        android:layout_alignLeft="@+id/radioUyariTuruGrup"
+        android:text="@string/label_UyariTuru"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/btnBebekTekBaslat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:text="@string/btnBebekTekBaslat" />
+
+    <TextView
+        android:id="@+id/labelTelNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/labelTelNo"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageButton
+        android:id="@+id/icon_rehber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView1"
+        android:layout_toRightOf="@+id/btnBebekTekBaslat"
+        android:contentDescription="@string/content"
+        android:src="@drawable/icon_rehber" />
+
+</RelativeLayout>

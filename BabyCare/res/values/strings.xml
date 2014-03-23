@@ -11,5 +11,13 @@
     <string name="radio_Coklu">Çoklu Cihaz Bağlantısı(Bebek-Ebeveyn)</string>
     <string name="radio_Tekli">Tek Cihaz(Bebek)</string>
     <string name="btn_Sec">Seç</string>
+    <string name="radio_SMS">SMS ile Uyar</string>
+    <string name="radio_Arama">Arama ile Uyar</string>
+    <string name="label_UyariTuru">Uyarı Türünü Seçiniz:</string>
+    <string name="labelTelNo">Uyarılacak Telefon No:</string>
+    <string name="btnBebekTekBaslat">Bebek Telsizini Başlat</string>
+    <string name="content">Image</string>
+    
+    
 
 </resources>

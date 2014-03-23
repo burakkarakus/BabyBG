@@ -3,45 +3,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="top" >
-    
-    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/pager"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-   
-	</android.support.v4.view.ViewPager>
 	
     <RadioGroup
         android:id="@+id/radioBaglantiTuru"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
+        
+        <RadioButton
+            android:id="@+id/radioCift"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:checked="true"
+            android:text="@string/radio_Coklu"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:textColor="@color/text_selector"/>
+
+    	<RadioButton
+    	    android:id="@+id/radioTek"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_marginBottom="77dp"
+    	    android:text="@string/radio_Tekli"
+    	    android:textStyle="bold"
+    	    android:typeface="serif"
+    	    android:textColor="@color/text_selector" />
  
-    </RadioGroup>
+    	</RadioGroup>
 
     <Button
         android:id="@+id/btn_Sec"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginBottom="164dp"
         android:text="@string/btn_Sec" />
-
-    <RadioButton
-        android:id="@+id/radioCift"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/radioTek"
-        android:layout_alignParentRight="true"
-        android:checked="true"
-        android:text="@string/radio_Coklu" />
-
-    <RadioButton
-        android:id="@+id/radioTek"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_Sec"
-        android:layout_alignLeft="@+id/radioCift"
-        android:layout_marginBottom="77dp"
-        android:text="@string/radio_Tekli" />
 	
 </RelativeLayout>
