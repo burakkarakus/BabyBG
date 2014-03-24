@@ -45,7 +45,7 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/OTP_connection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/radioUyariTuruGrup"
@@ -60,7 +60,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="18dp"
-        android:text="@string/btnBebekTekBaslat" />
+        android:text="@string/btnBebekBaslat" />
 
     <TextView
         android:id="@+id/labelTelNo"
@@ -76,7 +76,7 @@
         android:id="@+id/icon_rehber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView1"
+        android:layout_above="@+id/OTP_connection"
         android:layout_toRightOf="@+id/btnBebekTekBaslat"
         android:contentDescription="@string/content"
         android:src="@drawable/icon_rehber" />

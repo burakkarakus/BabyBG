@@ -46,6 +46,10 @@
             android:name="com.bitirme.babycare.BebekTekCihaz"
             android:label="Bebek Cihazı"
             ></activity>
+        <activity
+            android:name="com.bitirme.babycare.BebekCiftCihaz"
+            android:label="Bebek Cihazı"
+            ></activity>
         
     </application>
 

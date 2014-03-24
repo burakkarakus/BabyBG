@@ -28,27 +28,30 @@ public final class R {
         public static final int icon_rehber=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f090014;
-        public static final int btnBebekTekBaslat=0x7f090005;
-        public static final int btn_Sec=0x7f090010;
-        public static final int button_baby=0x7f09000a;
-        public static final int button_make_connection=0x7f09000c;
-        public static final int button_parrent=0x7f09000b;
-        public static final int editText_sendClient=0x7f090011;
-        public static final int icon_rehber=0x7f090009;
-        public static final int labelTelNo=0x7f090003;
+        public static final int OTP_connection=0x7f090003;
+        public static final int action_settings=0x7f090017;
+        public static final int btnBebekTekBaslat=0x7f090009;
+        public static final int btn_Sec=0x7f090013;
+        public static final int button1=0x7f090004;
+        public static final int button_baby=0x7f09000d;
+        public static final int button_make_connection=0x7f09000f;
+        public static final int button_parrent=0x7f09000e;
+        public static final int editText_sendClient=0x7f090014;
+        public static final int icon_rehber=0x7f09000c;
+        public static final int labelTelNo=0x7f090007;
         public static final int mainText=0x7f090001;
+        public static final int progressBar1=0x7f090002;
         public static final int progress_wait_connection=0x7f090000;
-        public static final int radioArama=0x7f090007;
-        public static final int radioBaglantiTuru=0x7f09000d;
-        public static final int radioCift=0x7f09000e;
-        public static final int radioSMS=0x7f090006;
-        public static final int radioTek=0x7f09000f;
-        public static final int radioUyariTuruGrup=0x7f090004;
-        public static final int send=0x7f090012;
-        public static final int serverTextView=0x7f090013;
-        public static final int textView1=0x7f090008;
-        public static final int txtNumara=0x7f090002;
+        public static final int radioArama=0x7f09000b;
+        public static final int radioBaglantiTuru=0x7f090010;
+        public static final int radioCift=0x7f090011;
+        public static final int radioSMS=0x7f09000a;
+        public static final int radioTek=0x7f090012;
+        public static final int radioUyariTuruGrup=0x7f090008;
+        public static final int send=0x7f090015;
+        public static final int serverTextView=0x7f090016;
+        public static final int textView2=0x7f090005;
+        public static final int txtNumara=0x7f090006;
     }
     public static final class layout {
         public static final int activity_baby_wait_connection=0x7f030000;
@@ -67,7 +70,7 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int baby=0x7f050004;
-        public static final int btnBebekTekBaslat=0x7f05000e;
+        public static final int btnBebekBaslat=0x7f05000e;
         public static final int btn_Sec=0x7f050009;
         public static final int content=0x7f05000f;
         public static final int hello_world=0x7f050002;
@@ -79,6 +82,7 @@ public final class R {
         public static final int radio_Coklu=0x7f050007;
         public static final int radio_SMS=0x7f05000a;
         public static final int radio_Tekli=0x7f050008;
+        public static final int random_pass_is=0x7f050010;
         public static final int wait_connection=0x7f050005;
     }
     public static final class style {

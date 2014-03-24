@@ -15,8 +15,9 @@
     <string name="radio_Arama">Arama ile Uyar</string>
     <string name="label_UyariTuru">Uyarı Türünü Seçiniz:</string>
     <string name="labelTelNo">Uyarılacak Telefon No:</string>
-    <string name="btnBebekTekBaslat">Bebek Telsizini Başlat</string>
+    <string name="btnBebekBaslat">Bebek Telsizini Başlat</string>
     <string name="content">Image</string>
+    <string name="random_pass_is">Baglantı Şifreniz: </string>
     
     
 
