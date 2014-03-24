@@ -45,13 +45,7 @@ public class MainActivity extends Activity{ //FragmentActivity geldi Activity ye
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.anasayfa);
 		
-		addListenerOnButton();
-		
-	}
-	
-	public void addListenerOnButton() {
-		// TODO Auto-generated method stub
-		
+//		addListenerOnButton();
 		radioBaglantiTuruGrup=(RadioGroup)findViewById(R.id.radioBaglantiTuru);
 		btnSec = (Button) findViewById(R.id.btn_Sec);
 		//txtview = (TextView) findViewById(R.id.txt1);
@@ -62,24 +56,51 @@ public class MainActivity extends Activity{ //FragmentActivity geldi Activity ye
 				// TODO Auto-generated method stub
 				
 				int selectedId = radioBaglantiTuruGrup.getCheckedRadioButtonId();
-				
+				Intent intent = null;
 				radioCokTekButton = (RadioButton) findViewById(selectedId);
 				if(selectedId==R.id.radioCift){
-					Intent intent = new Intent(MainActivity.this,BebekCiftCihaz.class);
-					startActivity(intent);
+					 intent = new Intent(MainActivity.this, BebekCiftCihaz.class);
 				}
 				else if(selectedId==R.id.radioTek){
 					
-				Intent intent = new Intent(MainActivity.this, BebekTekCihaz.class);
-				startActivity(intent);
+					intent = new Intent(MainActivity.this, BebekTekCihaz.class);
 				}
-					
+				startActivity(intent);
 					
 			}
 		});
 		
-		
 	}
+	
+//	public void addListenerOnButton() {
+//		// TODO Auto-generated method stub
+//		
+//		radioBaglantiTuruGrup=(RadioGroup)findViewById(R.id.radioBaglantiTuru);
+//		btnSec = (Button) findViewById(R.id.btn_Sec);
+//		//txtview = (TextView) findViewById(R.id.txt1);
+//		btnSec.setOnClickListener(new OnClickListener() {
+//		
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				
+//				int selectedId = radioBaglantiTuruGrup.getCheckedRadioButtonId();
+//				Intent intent = null;
+//				radioCokTekButton = (RadioButton) findViewById(selectedId);
+//				if(selectedId==R.id.radioCift){
+//					 intent = new Intent(MainActivity.this, BebekCiftCihaz.class);
+//				}
+//				else if(selectedId==R.id.radioTek){
+//					
+//				 intent = new Intent(MainActivity.this, BebekTekCihaz.class);
+//				}
+//				startActivity(intent);
+//					
+//			}
+//		});
+//		
+//		
+//	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

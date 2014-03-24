@@ -38,16 +38,13 @@
             android:name="com.bitirme.babycare.Parrent"
             android:label="Evebeyn"
             ></activity>
-        <activity android:name=".server"
-            android:label="Server"></activity>
-        <activity android:name=".client"
-            android:label="Client"></activity>
-        <activity
-            android:name="com.bitirme.babycare.BebekTekCihaz"
-            android:label="Bebek Cihazı"
-            ></activity>
         <activity
             android:name="com.bitirme.babycare.BebekCiftCihaz"
+            android:label="Bağlantı Bekleniyor"
+            ></activity>
+        
+        <activity
+            android:name="com.bitirme.babycare.BebekTekCihaz"
             android:label="Bebek Cihazı"
             ></activity>
         
