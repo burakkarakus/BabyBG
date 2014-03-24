@@ -30,14 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-         <activity
-            android:name="com.bitirme.babycare.Baby"
-            android:label="Cocuk"
-            ></activity>
-        <activity
-            android:name="com.bitirme.babycare.Parrent"
-            android:label="Evebeyn"
-            ></activity>
         <activity
             android:name="com.bitirme.babycare.BebekCiftCihaz"
             android:label="Bağlantı Bekleniyor"
@@ -45,7 +37,7 @@
         
         <activity
             android:name="com.bitirme.babycare.BebekTekCihaz"
-            android:label="Bebek Cihazı"
+            android:label="Lütfen Bir Cihaz Seçin"
             ></activity>
         
     </application>
