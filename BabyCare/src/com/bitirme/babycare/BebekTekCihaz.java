@@ -11,7 +11,6 @@ import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.view.View;
@@ -137,6 +136,7 @@ public class BebekTekCihaz extends Activity {
 		{
 			Uri contact = data.getData();
 			ContentResolver cr = getContentResolver();
+			@SuppressWarnings("deprecation")
 			Cursor c = managedQuery(contact, null, null, null, null);
 			while(c.moveToNext())
 			{

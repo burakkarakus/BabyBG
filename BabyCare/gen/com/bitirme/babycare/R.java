@@ -35,7 +35,7 @@ public final class R {
         public static final int btn_baslat_cift_telsiz=0x7f090000;
         public static final int icon_rehber=0x7f09000e;
         public static final int labelTelNo=0x7f090009;
-        public static final int noiseBar=0x7f090003;
+        public static final int noiseBar=0x7f090002;
         public static final int progressBar1=0x7f090005;
         public static final int radioArama=0x7f09000d;
         public static final int radioBaglantiTuru=0x7f09000f;
@@ -44,10 +44,10 @@ public final class R {
         public static final int radioTek=0x7f090011;
         public static final int radioUyariTuruGrup=0x7f09000a;
         public static final int seekBar_treshhold=0x7f090001;
-        public static final int textView1=0x7f090004;
+        public static final int textView1=0x7f090003;
         public static final int textView2=0x7f090007;
         public static final int txtNumara=0x7f090008;
-        public static final int txt_trashold_level=0x7f090002;
+        public static final int txt_trashold_level=0x7f090004;
     }
     public static final class layout {
         public static final int activity_baby_listening=0x7f030000;
