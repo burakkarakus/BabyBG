@@ -18,6 +18,9 @@
     <string name="btnBebekBaslat">Bebek Telsizini Başlat</string>
     <string name="content">Image</string>
     <string name="random_pass_is">Baglantı Şifreniz: </string>
+    <string name="treshold_header">Lütfen Eşik Seviyenizi Belirleniyiniz</string>
+    <string name="stop_listening">Dinlemeyi Durdur!</string>
+    <string name= "sms_body">Bebeğiniz uyandı, lütfen kontrol ediniz!</string>
     
     
 

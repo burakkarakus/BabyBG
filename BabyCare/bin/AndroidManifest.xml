@@ -40,6 +40,8 @@
             android:label="Lütfen Bir Cihaz Seçin"
             ></activity>
         
+        <activity android:name=".BabyListen"
+            android:label="Bebek Uyuyor..."></activity>
     </application>
 
 </manifest>

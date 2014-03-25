@@ -48,34 +48,42 @@ public class BebekTekCihaz extends Activity {
 		});
 	    
 		
-		//TODO: ARAMA VEYA SMS DÝNLEME SAYFASINDA CALISACAK 
-		//      ÝNTENTE EXTRA KOYARAK SMS MÝ ARAMA MI OLDUGUNU ANLAYACAZ ONA GORE ISLEM YAPILACAK 
-		//		FALSE ÝSE CALLING, TRUE ÝSE SMS
+		//TODO: ARAMA VEYA SMS Dï¿½NLEME SAYFASINDA CALISACAK 
+		//      ï¿½NTENTE EXTRA KOYARAK SMS Mï¿½ ARAMA MI OLDUGUNU ANLAYACAZ ONA GORE ISLEM YAPILACAK 
+		//		FALSE ï¿½SE CALLING, TRUE ï¿½SE SMS
 		btnBebekTekBaslat.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				int selectedId = radioGrup.getCheckedRadioButtonId();
-				Intent intent = new Intent(BebekTekCihaz.this,MainActivity.class);
-				//TODO: dinleme sayfasýna Yönlenecek giderken türü ve txtNumara gönderilecek
+				Intent intent = new Intent(BebekTekCihaz.this,BabyListen.class); //diger sayfaya gidebilmek icin
+				
 				if(selectedId==R.id.radioArama)
 				{
-					intent.putExtra("isSMS", false);
+					Uri uri= Uri.parse("tel:"+txtNumara);
+					Intent callIntent= new Intent(Intent.ACTION_CALL,uri); // diger sayfada kullanilacak intent 
 					
-					Toast.makeText(getApplicationContext(), "Arama seçildi numara:"+txtNumara.getText(), Toast.LENGTH_LONG).show();
+					intent.putExtras(callIntent); // birisinin digerinin icine gomuyorum diger sayfanin sms mi call mi oldugunu bilmesine gerek yok
+												// sadece startactivty callIntent diyecek
+					Toast.makeText(getApplicationContext(), "Arama seï¿½ildi numara:"+txtNumara.getText(), Toast.LENGTH_LONG).show();
 				}
 				else if(selectedId==R.id.radioSMS)
 				{
-					Toast.makeText(getApplicationContext(), "SMS seçildi numara:"+txtNumara.getText(), Toast.LENGTH_LONG).show();
-					intent.putExtra("isSMS", true);	
+					Uri uri=  Uri.parse("sms:"+txtNumara); 
+					Intent smsIntent= new Intent(Intent.ACTION_SENDTO,uri);
+					smsIntent.putExtra("sms_body", getResources().getString(R.string.sms_body));//values/strings teki degeri donduruyor
+					intent.putExtras(smsIntent);
+					Toast.makeText(getApplicationContext(), "SMS seï¿½ildi numara:"+txtNumara.getText(), Toast.LENGTH_LONG).show();
+						
 				}
+				startActivity(intent);
 				
 			}
 		});
 		
 	
-		//TODO: Arama veya mesaj yollama bu sayfada Gerçekleþmeyecek
+		//TODO: Arama veya mesaj yollama bu sayfada Gerï¿½ekleï¿½meyecek
 		
 		
 //		btnBebekTekBaslat.setOnClickListener(new OnClickListener() {
@@ -85,7 +93,7 @@ public class BebekTekCihaz extends Activity {
 //				Intent intentArama = new Intent(Intent.ACTION_CALL);
 //				intentArama.setData(Uri.parse("tel"+txtNumara.getText().toString()));
 //				startActivity(intentArama);
-//				Toast.makeText(getApplicationContext(), "Numara aranýyor...", Toast.LENGTH_LONG).show();
+//				Toast.makeText(getApplicationContext(), "Numara aranï¿½yor...", Toast.LENGTH_LONG).show();
 //				if(radio_Arama.isChecked()){
 //				try {
 //					 intentArama = new Intent(Intent.ACTION_CALL);
@@ -96,7 +104,7 @@ public class BebekTekCihaz extends Activity {
 //                        Toast.makeText(getApplicationContext(), "Problem calling number.", Toast.LENGTH_LONG).show();
 //                    }
 //					
-//					Toast.makeText(getApplicationContext(), "Numara aranýyor...", Toast.LENGTH_LONG).show();
+//					Toast.makeText(getApplicationContext(), "Numara aranï¿½yor...", Toast.LENGTH_LONG).show();
 //					
 //				}
 //					else if(radio_SMS.isChecked()){
@@ -105,11 +113,11 @@ public class BebekTekCihaz extends Activity {
 //					intentSMS.setData(Uri.parse("sms:"
 //	                        + txtNumara.getText().toString()));
 //					intentSMS.putExtra( "sms_body", message );
-//					Toast.makeText(getApplicationContext(), "Numaraya sms gönderildi...", Toast.LENGTH_LONG).show();
+//					Toast.makeText(getApplicationContext(), "Numaraya sms gï¿½nderildi...", Toast.LENGTH_LONG).show();
 //////TODO COmment
-////					onClick'te ya da Listener'da bi sýkýntý var. Radiobutton kontrolünü dýþarda
-////					yapmamýz gerekiyo olabilir. Arama ve smsi burda sadece denemek için koydum, baþka
-////					activity ye geçip yapýcaz zaten.*/
+////					onClick'te ya da Listener'da bi sï¿½kï¿½ntï¿½ var. Radiobutton kontrolï¿½nï¿½ dï¿½ï¿½arda
+////					yapmamï¿½z gerekiyo olabilir. Arama ve smsi burda sadece denemek iï¿½in koydum, baï¿½ka
+////					activity ye geï¿½ip yapï¿½caz zaten.*/
 //				}
 //				
 //				

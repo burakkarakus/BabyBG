@@ -22,7 +22,7 @@
         android:text="XXXX" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_baslat_cift_telsiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/OTP_connection"
