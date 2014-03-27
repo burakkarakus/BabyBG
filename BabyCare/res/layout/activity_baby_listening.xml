@@ -4,7 +4,7 @@
     android:layout_height="wrap_content" >
 
     <Button
-        android:id="@+id/btn_baslat_cift_telsiz"
+        android:id="@+id/btn_stop_baby_listening"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -16,7 +16,7 @@
         android:id="@+id/seekBar_treshhold"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_baslat_cift_telsiz"
+        android:layout_above="@+id/btn_stop_baby_listening"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="65dp"
          />

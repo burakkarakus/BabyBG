@@ -60,20 +60,17 @@ public class BebekTekCihaz extends Activity {
 				
 				if(selectedId==R.id.radioArama)
 				{
-					Uri uri= Uri.parse("tel:"+txtNumara);
-					Intent callIntent= new Intent(Intent.ACTION_CALL,uri); // diger sayfada kullanilacak intent 
 					
-					intent.putExtras(callIntent); // birisinin digerinin icine gomuyorum diger sayfanin sms mi call mi oldugunu bilmesine gerek yok
-												// sadece startactivty callIntent diyecek
-					Toast.makeText(getApplicationContext(), "Arama se�ildi numara:"+txtNumara.getText(), Toast.LENGTH_LONG).show();
+					intent.putExtra("number", txtNumara.getText().toString()); 
+					Toast.makeText(getApplicationContext(), "Arama seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
 				}
 				else if(selectedId==R.id.radioSMS)
 				{
-					Uri uri=  Uri.parse("sms:"+txtNumara); 
-					Intent smsIntent= new Intent(Intent.ACTION_SENDTO,uri);
-					smsIntent.putExtra("sms_body", getResources().getString(R.string.sms_body));//values/strings teki degeri donduruyor
-					intent.putExtras(smsIntent);
-					Toast.makeText(getApplicationContext(), "SMS se�ildi numara:"+txtNumara.getText(), Toast.LENGTH_LONG).show();
+
+					intent.putExtra("message", getResources().getString(R.string.sms_body));
+					intent.putExtra("number", txtNumara.getText().toString());
+
+					Toast.makeText(getApplicationContext(), "SMS seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
 						
 				}
 				startActivity(intent);
@@ -82,52 +79,12 @@ public class BebekTekCihaz extends Activity {
 		});
 		
 	
-		//TODO: Arama veya mesaj yollama bu sayfada Ger�ekle�meyecek
-		
-		
-//		btnBebekTekBaslat.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View arg0) {
-//				
-//				Intent intentArama = new Intent(Intent.ACTION_CALL);
-//				intentArama.setData(Uri.parse("tel"+txtNumara.getText().toString()));
-//				startActivity(intentArama);
-//				Toast.makeText(getApplicationContext(), "Numara aran�yor...", Toast.LENGTH_LONG).show();
-//				if(radio_Arama.isChecked()){
-//				try {
-//					 intentArama = new Intent(Intent.ACTION_CALL);
-//					intentArama.setData(Uri.parse("tel"+txtNumara.getText().toString()));
-//					startActivity(intentArama);
-//					}
-//					catch(Exception e) {
-//                        Toast.makeText(getApplicationContext(), "Problem calling number.", Toast.LENGTH_LONG).show();
-//                    }
-//					
-//					Toast.makeText(getApplicationContext(), "Numara aran�yor...", Toast.LENGTH_LONG).show();
-//					
-//				}
-//					else if(radio_SMS.isChecked()){
-//					String message = "Hello world.";
-//					Intent intentSMS = new Intent(Intent.ACTION_VIEW);
-//					intentSMS.setData(Uri.parse("sms:"
-//	                        + txtNumara.getText().toString()));
-//					intentSMS.putExtra( "sms_body", message );
-//					Toast.makeText(getApplicationContext(), "Numaraya sms g�nderildi...", Toast.LENGTH_LONG).show();
-//////TODO COmment
-////					onClick'te ya da Listener'da bi s�k�nt� var. Radiobutton kontrol�n� d��arda
-////					yapmam�z gerekiyo olabilir. Arama ve smsi burda sadece denemek i�in koydum, ba�ka
-////					activity ye ge�ip yap�caz zaten.*/
-//				}
-//				
-//				
-//			}
-//		});
+
 	
 	}
 	
 
 	@Override
-	
 	public void onActivityResult(int reqCode, int resultCode, Intent data) 
 	{
 		super.onActivityResult(reqCode, resultCode, data);

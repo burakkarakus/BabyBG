@@ -13,7 +13,7 @@
             android:id="@+id/radioCift"
             android:layout_width="wrap_content"
             android:layout_height="72dp"
-            android:checked="true"
+            android:checked="false"
             android:text="@string/radio_Coklu"
             android:textStyle="bold"
             android:typeface="serif"
@@ -25,6 +25,7 @@
     	    android:layout_height="wrap_content"
     	    android:layout_marginBottom="77dp"
     	    android:text="@string/radio_Tekli"
+    	    android:checked="true"
     	    android:textStyle="bold"
     	    android:typeface="serif"
     	    android:textColor="@color/text_selector" />

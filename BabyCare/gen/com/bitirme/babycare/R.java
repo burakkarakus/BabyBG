@@ -32,7 +32,7 @@ public final class R {
         public static final int action_settings=0x7f090013;
         public static final int btnBebekTekBaslat=0x7f09000b;
         public static final int btn_Sec=0x7f090012;
-        public static final int btn_baslat_cift_telsiz=0x7f090000;
+        public static final int btn_stop_baby_listening=0x7f090000;
         public static final int icon_rehber=0x7f09000e;
         public static final int labelTelNo=0x7f090009;
         public static final int noiseBar=0x7f090002;

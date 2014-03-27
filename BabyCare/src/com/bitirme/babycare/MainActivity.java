@@ -37,6 +37,7 @@ public class MainActivity extends Activity{
 		
 		radioBaglantiTuruGrup=(RadioGroup)findViewById(R.id.radioBaglantiTuru);
 		btnSec = (Button) findViewById(R.id.btn_Sec);
+		
 		btnSec.setOnClickListener(new OnClickListener() {
 		
 			@Override
@@ -59,36 +60,7 @@ public class MainActivity extends Activity{
 		});
 		
 	}
-	
-//	public void addListenerOnButton() {
-//		// TODO Auto-generated method stub
-//		
-//		radioBaglantiTuruGrup=(RadioGroup)findViewById(R.id.radioBaglantiTuru);
-//		btnSec = (Button) findViewById(R.id.btn_Sec);
-//		//txtview = (TextView) findViewById(R.id.txt1);
-//		btnSec.setOnClickListener(new OnClickListener() {
-//		
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				
-//				int selectedId = radioBaglantiTuruGrup.getCheckedRadioButtonId();
-//				Intent intent = null;
-//				radioCokTekButton = (RadioButton) findViewById(selectedId);
-//				if(selectedId==R.id.radioCift){
-//					 intent = new Intent(MainActivity.this, BebekCiftCihaz.class);
-//				}
-//				else if(selectedId==R.id.radioTek){
-//					
-//				 intent = new Intent(MainActivity.this, BebekTekCihaz.class);
-//				}
-//				startActivity(intent);
-//					
-//			}
-//		});
-//		
-//		
-//	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,33 +70,7 @@ public class MainActivity extends Activity{
 	}
 
 	
-		/*Button btn_baby = (Button) findViewById(R.layout.fragment_bebek);
-		Button btn_parrent = (Button) findViewById(R.layout.fragment_ebeveyn);
 		
-		btn_baby.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// 
-				Intent intent = new Intent(MainActivity.this, client.class);
-				MainActivity.this.startActivity(intent);
-				
-			}
-		});
-		*/
-		
-		/*btn_parrent.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				
-				Intent intent = new Intent(MainActivity.this, server.class);
-				startActivity(intent);
-				
-			}
-		});*/
-		
-
 		
 		
 	

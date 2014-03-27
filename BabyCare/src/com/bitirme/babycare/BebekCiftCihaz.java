@@ -21,7 +21,7 @@ public class BebekCiftCihaz extends Activity{
 		setContentView(R.layout.activity_bebek_cift);
 		Random r= new Random();
 		TextView otp =(TextView)findViewById(R.id.OTP_connection);
-		Button btn = (Button) findViewById(R.id.btn_baslat_cift_telsiz);
+		Button btn = (Button) findViewById(R.id.btn_stop_baby_listening);
 		
 		randomPassword=r.nextInt(8999)+1000;						//1000 <-> 9999
 		otp.setText(randomPassword.toString());
