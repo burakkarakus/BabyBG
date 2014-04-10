@@ -1,11 +1,15 @@
 package com.bitirme.babycare;
 
+import java.io.IOException;
+
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -14,17 +18,87 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-
 public class BabyListen extends Activity{
+	
+    private static final int POLL_INTERVAL = 300;
+    
+
+    /** running state **/
+
+    private int mTickCount = 0;
+    private int mHitCount=0;
+   
+    SeekBar seek;
+    ProgressBar noiseBar;
+    TextView tresholdText;
+
+    /** config state **/
+  
+    private int mPollDelay;
+    double amp;
+    
+    
+
+    private Handler mHandler = new Handler();
+
+    /* References to view elements */
+ 
+
+    /* data source */
+    private SoundMeter mSensor;
+    
+    /* SMS remote control */
+
+
+    private Runnable mSleepTask = new Runnable() {
+            public void run() {
+                    try {
+						start();
+					} catch (IllegalStateException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+            }
+    };
+    private Runnable mPollTask = new Runnable() {
+            public void run() {
+                    amp = mSensor.getAmplitude();
+                    noiseBar.setProgress((int) amp);
+					Log.i("1", String.valueOf(amp));//Log Ekranin gosterimi
+                    
+                    if (amp > Integer.parseInt(tresholdText.getText().toString())) //Tresholdu TextViewDan Aliyor
+                    {
+                            mHitCount++;
+                            if (mHitCount > 5){
+                            	help();// Aktive oldugunda intent islemini yapiyor
+                            	return ;// Programi bitiyor optional
+                            	
+                            }
+                    }
+
+                    mTickCount++;
+                    
+                    
+                    if (( mPollDelay > 0) && mTickCount > 100) {
+                            
+                    } else {
+                            mHandler.postDelayed(mPollTask, POLL_INTERVAL);
+                    }
+            }
+    };
+     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_baby_listening);
 		
-		final SeekBar seek= (SeekBar)findViewById(R.id.seekBar_treshhold);
-		final TextView tresholdText = (TextView) findViewById(R.id.txt_trashold_level);
-		final ProgressBar noiseBar= (ProgressBar) findViewById(R.id.noiseBar);
+		seek= (SeekBar)findViewById(R.id.seekBar_treshhold);
+		tresholdText = (TextView) findViewById(R.id.txt_trashold_level);
+		 noiseBar= (ProgressBar) findViewById(R.id.noiseBar);
 		final Button stopButton = (Button) findViewById(R.id.btn_stop_baby_listening);
 		
 		seek.setProgress(70);
@@ -32,33 +106,16 @@ public class BabyListen extends Activity{
 		int level= seek.getProgress();
 		tresholdText.setText(Integer.toString(level));
 		ChangeTresholdText(seek,tresholdText,noiseBar);
+		mSensor = new SoundMeter();
 		
 		stopButton.setOnClickListener(new OnClickListener() {
 			
-			// btn_ Baby, parrent / doublephone/ sms body
+			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				try {
-					
-					if(getIntent().getStringExtra("message") != null)
-					{
-						sendSMS(getIntent().getStringExtra("number"), getIntent().getStringExtra("message"));
-						
-					}
-					else
-					{ 
-						Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+getIntent().getStringExtra("number")));
-						startActivity(intent);
-					}
-					
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				
-//			
-//				
+								
 			}
 		});
 		
@@ -73,7 +130,7 @@ public class BabyListen extends Activity{
 				// TODO Auto-generated method stub
 				
 				tresholdText.setText(Integer.toString(progress));
-				noiseBar.setProgress(progress); // Progress bar� da de�i�tirdim kontrol ama�l�
+				
 			}
 
 			@Override
@@ -93,38 +150,81 @@ public class BabyListen extends Activity{
 	}
 	private void sendSMS(String number, String message) {
        
-		 /** Creating an intent, corresponding to sent delivery report */
-        /** This intent will call the activity SmsStatus */
+		
         Intent sentIntent = new Intent("in.wptrafficanalyzer.activity.status.sent");
 
-        /** Sms is sent to this number */
         sentIntent.putExtra("number", number);
-
-        /** Setting status data on the intent */
         sentIntent.putExtra("status", 0);
 
-        /** Creating an intent, corresponding to delivered delivery report */
-        /** This intent will call the activity SmsStatus */
         Intent deliveredIntent = new Intent("in.wptrafficanalyzer.activity.status.delivered");
-
-        /** Sms is sent to this number */
         deliveredIntent.putExtra("number", number);
-
-        /** Setting status data on the intent */
         deliveredIntent.putExtra("status", 1);
-
-        /** Creating a pending intent which will be invoked by SmsManager when an sms message is successfully sent */
         PendingIntent piSent = PendingIntent.getActivity(getBaseContext(), 0, sentIntent, PendingIntent.FLAG_ONE_SHOT);
-
-        /** Creating a pending intent which will be invoked by SmsManager when an sms message is successfully delivered */
         PendingIntent piDelivered = PendingIntent.getActivity(getBaseContext(), 0, deliveredIntent, PendingIntent.FLAG_ONE_SHOT);
-
-        /** Getting an instance of SmsManager to sent sms message from the application*/
         SmsManager smsManager = SmsManager.getDefault();
-
-        /** Sending the Sms message to the intended party */
         smsManager.sendTextMessage(number, null, message, piSent, piDelivered);
     }
+	@Override
+    public void onResume() {
+            super.onResume();
+            
+            
+
+                    try {
+						start();
+						
+						
+					} catch (IllegalStateException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+            
+    }
+
+    @Override
+    public void onStop() {
+            super.onStop();
+            stop();
+            
+    }
+	
+	
+	private void start() throws IllegalStateException, IOException {
+        mTickCount = 0;
+        mHitCount = 0;
+        mSensor.start();
+        
+       
+        mHandler.postDelayed(mPollTask, POLL_INTERVAL);
+        }
+
+
+	private void stop() {
+        
+        mHandler.removeCallbacks(mSleepTask);
+        mHandler.removeCallbacks(mPollTask);
+        mSensor.stop();
+	}
+
+
+	private void help()
+	{
+
+		if(getIntent().getStringExtra("message") != null)
+		{
+			sendSMS(getIntent().getStringExtra("number"), getIntent().getStringExtra("message"));
+		
+		}
+		else
+		{ 
+			Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+getIntent().getStringExtra("number")));
+			startActivity(intent);
+		}
+
+}
     
 
 }
