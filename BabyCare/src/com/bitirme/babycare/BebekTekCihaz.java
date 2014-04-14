@@ -21,7 +21,7 @@ public class BebekTekCihaz extends Activity {
 	ImageButton icon_rehber;
 	Button btnBebekTekBaslat;
 	EditText txtNumara;
-	
+	String str;
 	RadioGroup radioGrup;
 	private static int PICK_CONTACT = 0;
 	
@@ -62,7 +62,7 @@ public class BebekTekCihaz extends Activity {
 				{
 					
 					intent.putExtra("number", txtNumara.getText().toString()); 
-					Toast.makeText(getApplicationContext(), "Arama seÃ§ildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
+					//Toast.makeText(getApplicationContext(), "Arama seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
 				}
 				else if(selectedId==R.id.radioSMS)
 				{
@@ -70,11 +70,24 @@ public class BebekTekCihaz extends Activity {
 					intent.putExtra("message", getResources().getString(R.string.sms_body));
 					intent.putExtra("number", txtNumara.getText().toString());
 
-					Toast.makeText(getApplicationContext(), "SMS seÃ§ildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
+					//Toast.makeText(getApplicationContext(), "SMS seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
 						
 				}
-				startActivity(intent);
+				str=txtNumara.getText().toString();
+				if(!str.matches("")){
+					if(selectedId==R.id.radioSMS){
+						Toast.makeText(getApplicationContext(), "SMS seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
+					}
+					else if(selectedId==R.id.radioArama){
+						Toast.makeText(getApplicationContext(), "Arama seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
+					}
 				
+				startActivity(intent);
+				}
+				else{
+					Toast.makeText(getApplicationContext(), "XXXXXXXXX", Toast.LENGTH_LONG).show();
+				return;
+			}
 			}
 		});
 		

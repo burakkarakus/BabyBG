@@ -74,7 +74,7 @@ public class BabyListen extends Activity{
                             mHitCount++;
                             if (mHitCount > 5){
                             	help();// Aktive oldugunda intent islemini yapiyor
-                            	return ;// Programi bitiyor optional
+                            	//return ;// Programi bitiyor optional
                             	
                             }
                     }

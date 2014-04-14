@@ -2,9 +2,9 @@
 <resources>
 
     <string name="app_name">BabyCare</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ayarlar</string>
     <string name="hello_world">Hello world!</string>
-    <string name="parrent">Evebeyn</string>
+    <string name="parrent">Ebeveyn</string>
     <string name="baby">Bebek</string>
     <string name="wait_connection">Evebeyn Bağlantısi Bekleniyor.</string>
     <string name="make_connection">Bebek Telsizine Bağlan</string>
@@ -18,9 +18,11 @@
     <string name="btnBebekBaslat">Bebek Telsizini Başlat</string>
     <string name="content">Image</string>
     <string name="random_pass_is">Baglantı Şifreniz: </string>
-    <string name="treshold_header">Lütfen Eşik Seviyenizi Belirleniyiniz</string>
+    
     <string name="stop_listening">Dinlemeyi Durdur!</string>
     <string name= "sms_body">Bebeğiniz uyandı, lütfen kontrol ediniz!</string>
+    <string name="ustbaslikBebekDinleme">Dinlemeyi Başlat</string>
+    <string name="txt_threshold_bilgi">Lütfen Eşik Seviyenizi Belirleyiniz</string>
     
     
 
