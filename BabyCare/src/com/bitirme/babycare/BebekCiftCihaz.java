@@ -1,18 +1,11 @@
 package com.bitirme.babycare;
 
-import java.io.IOException;
 import java.util.Random;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.PowerManager;
-import android.provider.Telephony.Sms.Conversations;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;

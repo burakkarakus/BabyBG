@@ -15,9 +15,11 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.ScaleAnimation;
 
 public class BebekTekCihaz extends Activity {
 
+	ScaleAnimation scale;
 	ImageButton icon_rehber;
 	Button btnBebekTekBaslat;
 	EditText txtNumara;
@@ -34,6 +36,12 @@ public class BebekTekCihaz extends Activity {
 		btnBebekTekBaslat=(Button)findViewById(R.id.btnBebekTekBaslat);
 		txtNumara = (EditText) findViewById(R.id.txtNumara);
 		
+		scale=new ScaleAnimation(2, 0, 2, 0);
+		scale.setDuration(1000);
+		icon_rehber.startAnimation(scale);
+//		txtNumara.startAnimation(scale);
+//		radioGrup.startAnimation(scale);
+//		btnBebekTekBaslat.startAnimation(scale);
 		
 	    icon_rehber.setOnClickListener(new OnClickListener() {
 
@@ -85,7 +93,7 @@ public class BebekTekCihaz extends Activity {
 				startActivity(intent);
 				}
 				else{
-					Toast.makeText(getApplicationContext(), "XXXXXXXXX", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "Lütfen bir numara giriniz...", Toast.LENGTH_LONG).show();
 				return;
 			}
 			}
