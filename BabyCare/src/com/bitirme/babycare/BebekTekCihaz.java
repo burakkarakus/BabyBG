@@ -19,7 +19,7 @@ import android.view.animation.ScaleAnimation;
 
 public class BebekTekCihaz extends Activity {
 
-	ScaleAnimation scale;
+	
 	ImageButton icon_rehber;
 	Button btnBebekTekBaslat;
 	EditText txtNumara;
@@ -36,13 +36,6 @@ public class BebekTekCihaz extends Activity {
 		btnBebekTekBaslat=(Button)findViewById(R.id.btnBebekTekBaslat);
 		txtNumara = (EditText) findViewById(R.id.txtNumara);
 		
-		scale=new ScaleAnimation(2, 0, 2, 0);
-		scale.setDuration(1000);
-		icon_rehber.startAnimation(scale);
-//		txtNumara.startAnimation(scale);
-//		radioGrup.startAnimation(scale);
-//		btnBebekTekBaslat.startAnimation(scale);
-		
 	    icon_rehber.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -54,10 +47,6 @@ public class BebekTekCihaz extends Activity {
 			}
 		});
 	    
-		
-		//TODO: ARAMA VEYA SMS D�NLEME SAYFASINDA CALISACAK 
-		//      �NTENTE EXTRA KOYARAK SMS M� ARAMA MI OLDUGUNU ANLAYACAZ ONA GORE ISLEM YAPILACAK 
-		//		FALSE �SE CALLING, TRUE �SE SMS
 		btnBebekTekBaslat.setOnClickListener(new OnClickListener() {
 			
 			@Override

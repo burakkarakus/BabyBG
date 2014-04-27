@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:background="@drawable/babybackground" >
+
+    <ImageView
+        android:id="@+id/imgUstBaslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/babycaretrans" />
+
+    <EditText
+        android:id="@+id/txtNumara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/icon_rehber"
+        android:layout_alignParentLeft="true"
+        android:ems="10"
+        android:inputType="phone" />
 
     <RadioGroup
         android:id="@+id/radioUyariTuruGrup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnBebekTekBaslat"
-        android:layout_alignRight="@+id/txtNumara"
-        android:layout_marginRight="18dp" >
+        android:layout_alignBottom="@+id/txtBtnBebekBaslat" >
 
         <RadioButton
             android:id="@+id/radioSMS"
@@ -34,37 +50,9 @@
             android:typeface="serif" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btnBebekTekBaslat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:text="@string/btnBebekBaslat" />
-
-    <TextView
-        android:id="@+id/labelTelNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp"
-        android:text="@string/labelTelNo"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/txtNumara"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/icon_rehber"
-        android:layout_alignParentLeft="true"
-        android:ems="10"
-        android:inputType="phone" />
-
     <TextView
         android:id="@+id/OTP_connection"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/radioUyariTuruGrup"
         android:layout_alignParentLeft="true"
@@ -76,8 +64,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/OTP_connection"
-        android:layout_toRightOf="@+id/labelTelNo"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@+id/txtNumara"
         android:background="@drawable/contact"
         android:contentDescription="@string/content" />
+
+    <TextView
+        android:id="@+id/labelTelNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imgUstBaslik"
+        android:layout_marginTop="23dp"
+        android:text="@string/labelTelNo"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txtBtnBebekBaslat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/radioUyariTuruGrup"
+        android:text="@string/btnBebekBaslat"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnBebekTekBaslat"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_above="@+id/txtBtnBebekBaslat"
+        android:layout_marginBottom="18dp"
+        android:layout_toLeftOf="@+id/icon_rehber"
+        android:background="@drawable/fw"
+        android:minWidth="48dp" />
 
 </RelativeLayout>

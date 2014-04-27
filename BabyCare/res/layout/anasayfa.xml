@@ -4,41 +4,44 @@
     android:layout_height="match_parent"
     android:gravity="top"
     android:background="@drawable/babybackground" >
-	
+
+    <ImageView
+        android:id="@+id/imgUstBaslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/noiseBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/babycaretrans" />
+
     <RadioGroup
         android:id="@+id/radioBaglantiTuru"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-        
-        <RadioButton
-            android:id="@+id/radioCift"
-            android:layout_width="wrap_content"
-            android:layout_height="72dp"
-            android:checked="false"
-            android:text="@string/radio_Coklu"
-            android:textStyle="bold"
-            android:typeface="serif"
-            android:textColor="@color/text_selector"/>
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btn_Sec"
+        android:layout_below="@+id/imgUstBaslik"
+        android:layout_marginTop="14dp" >
 
-    	<RadioButton
-    	    android:id="@+id/radioTek"
-    	    android:layout_width="match_parent"
-    	    android:layout_height="wrap_content"
-    	    android:layout_marginBottom="77dp"
-    	    android:text="@string/radio_Tekli"
-    	    android:checked="true"
-    	    android:textStyle="bold"
-    	    android:typeface="serif"
-    	    android:textColor="@color/text_selector" />
- 
-    	</RadioGroup>
+        <RadioButton
+            android:id="@+id/radioTek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="77dp"
+            android:checked="true"
+            android:text="@string/radio_Tekli"
+            android:textColor="@color/text_selector"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/btn_Sec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="164dp"
-        android:text="@string/btn_Sec" />
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp"
+        android:background="@drawable/fw" />
 	
 </RelativeLayout>

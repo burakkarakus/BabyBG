@@ -56,9 +56,11 @@ public class BabyListen extends Activity{
 						start();
 					} catch (IllegalStateException e) {
 						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
             }
@@ -112,9 +114,7 @@ public class BabyListen extends Activity{
 			
 			
 			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
+			public void onClick(View v) {			
 								
 			}
 		});
@@ -167,18 +167,14 @@ public class BabyListen extends Activity{
 	@Override
     public void onResume() {
             super.onResume();
-            
-            
-
                     try {
 						start();
 						
-						
 					} catch (IllegalStateException e) {
-						// TODO Auto-generated catch block
+						Log.i("IllegalState", "Illegal State");
 						e.printStackTrace();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
+						Log.i("IOException", "IOException");
 						e.printStackTrace();
 					}
             

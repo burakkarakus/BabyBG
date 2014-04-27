@@ -6,10 +6,6 @@
  * */
 
 package com.bitirme.babycare;
-
-
-
-
 import android.os.Build;
 import android.os.Bundle;
 import android.annotation.TargetApi;
@@ -47,10 +43,7 @@ public class MainActivity extends Activity{
 				int selectedId = radioBaglantiTuruGrup.getCheckedRadioButtonId();
 				Intent intent = null;
 				radioCokTekButton = (RadioButton) findViewById(selectedId);
-				if(selectedId==R.id.radioCift){
-					 intent = new Intent(MainActivity.this, BebekCiftCihaz.class);
-				}
-				else if(selectedId==R.id.radioTek){
+				if(selectedId==R.id.radioTek){
 					
 					intent = new Intent(MainActivity.this, BebekTekCihaz.class);
 				}

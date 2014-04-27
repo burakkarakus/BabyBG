@@ -21,8 +21,9 @@
     
     <string name="stop_listening">Dinlemeyi Durdur!</string>
     <string name= "sms_body">Bebeğiniz uyandı, lütfen kontrol ediniz!</string>
-    <string name="ustbaslikBebekDinleme">Dinlemeyi Başlat</string>
+    <string name="ustbaslikBebekDinleme"></string>
     <string name="txt_threshold_bilgi">Lütfen Eşik Seviyenizi Belirleyiniz</string>
+    <string name="defaultDecibelValue">100</string>
     
     
 
