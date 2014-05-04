@@ -25,7 +25,8 @@ public class SoundMeter {
         
         public void stop() {
                 if (mRecorder != null) {
-                        mRecorder.stop();       
+                        mRecorder.stop(); 
+                        mRecorder.reset();
                         mRecorder.release();
                         mRecorder = null;
                 }
@@ -33,7 +34,7 @@ public class SoundMeter {
         
         public double getAmplitude() {
                 if (mRecorder != null)
-                        return  (mRecorder.getMaxAmplitude()/100.0);
+                        return  (20*Math.log( mRecorder.getMaxAmplitude()/(6*5*3)));//Amplitute volume/volume of room
                 else
                         return 0;
 
