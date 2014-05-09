@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.security.auth.PrivateCredentialPermission;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -14,8 +13,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
@@ -27,15 +28,14 @@ public class BabyListen extends Activity{
 	
     private static final int POLL_INTERVAL = 300;
     
-
     /** running state **/
 
     private int mTickCount = 0;
     private int mHitCount=0;
-    private boolean mActivated=false;
     private boolean isStop=true;
     private int level;
     private Button stopButton;
+    private	Button testButton;
    
     SeekBar seek;
     ProgressBar noiseBar;
@@ -44,6 +44,7 @@ public class BabyListen extends Activity{
     /** config state **/
   
     private int mPollDelay;
+    private boolean mTestingMode;//Test mode control
     double amp;
     
     
@@ -78,9 +79,9 @@ public class BabyListen extends Activity{
             public void run() {
                     amp = mSensor.getAmplitude();
                     noiseBar.setProgress((int) amp);
-					Log.i("1", String.valueOf(amp));//Log Ekranin gosterimi
+					Log.i("desibel", String.valueOf(amp));
                     
-                    if (amp > Integer.parseInt(tresholdText.getText().toString())) //Tresholdu TextViewDan Aliyor
+                    if (amp > Integer.parseInt(tresholdText.getText().toString())&&!mTestingMode) //Tresholdu TextViewDan Aliyor
                     {
                             mHitCount++;
                             if (mHitCount > 5){
@@ -92,9 +93,7 @@ public class BabyListen extends Activity{
 								} catch (IOException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();
-								}// Aktive oldugunda intent islemini yapiyor
-                            	//return ;// Programi bitiyor optional
-                            	
+								}
                             	
                             }
                     }
@@ -121,6 +120,8 @@ public class BabyListen extends Activity{
 		tresholdText = (TextView) findViewById(R.id.txt_trashold_level);
 		 noiseBar= (ProgressBar) findViewById(R.id.noiseBar);
 		stopButton = (Button) findViewById(R.id.btn_stop_baby_listening);
+		testButton = (Button) findViewById(R.id.testButton);
+		
 		
 		seek.setProgress(70);
 		tresholdText.setText("70");
@@ -130,41 +131,56 @@ public class BabyListen extends Activity{
 		mSensor = new SoundMeter();
 		stopButton.setText("Dinlemeyi Baslat");
 		stopButton.setOnClickListener(new OnClickListener() {
-			
-			
 			@Override
 			public void onClick(View v) {	
-				if(isStop)
-				{
-					try {
+				try {
+					if(isStop)
+					{
 						startListening();
-					} catch (IllegalStateException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-				else
-				{
-										
-						try {
-							stopListening();
-						} catch (IllegalStateException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+						if(!mTestingMode)//Test modu degil ise butonu gorunmez yap
+							testButton.setVisibility(View.INVISIBLE);
 						
-					
-				}
-					
+					}
+					else
+					{		
+						stopListening();
+						if(!mTestingMode)
+							testButton.setVisibility(View.VISIBLE);
+						
+					}
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}		
 			}
-
+		});
+		testButton.setOnTouchListener(new OnTouchListener() {
 			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				try {
+					if(event.getAction()==MotionEvent.ACTION_DOWN)
+					{
+						startListening();
+						mTestingMode=true;
+					}
+					else{
+						stopListening();
+						mTestingMode=false;
+					}
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return false;
+			}
 		});
 		
 		
