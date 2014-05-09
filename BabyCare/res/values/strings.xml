@@ -2,27 +2,20 @@
 <resources>
 
     <string name="app_name">BabyCare</string>
-    <string name="action_settings">Ayarlar</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="parrent">Ebeveyn</string>
-    <string name="baby">Bebek</string>
-    <string name="wait_connection">Evebeyn Bağlantısi Bekleniyor.</string>
-    <string name="make_connection">Bebek Telsizine Bağlan</string>
-    <string name="radio_Coklu">Çoklu Cihaz Bağlantısı(Bebek-Ebeveyn)</string>
-    <string name="radio_Tekli">Tek Cihaz(Bebek)</string>
-    <string name="btn_Sec">Seç</string>
-    <string name="radio_SMS">SMS ile Uyar</string>
-    <string name="radio_Arama">Arama ile Uyar</string>
-    <string name="label_UyariTuru">Uyarı Türünü Seçiniz:</string>
-    <string name="labelTelNo">Uyarılacak Telefon No:</string>
-    <string name="btnBebekBaslat">Bebek Telsizini Başlat</string>
-    <string name="content">Image</string>
-    <string name="random_pass_is">Baglantı Şifreniz: </string>
-    
-    <string name="stop_listening">Dinlemeyi Durdur!</string>
-    <string name= "sms_body">Bebeğiniz uyandı, lütfen kontrol ediniz!</string>
+    <string name="action_settings">Setting</string>
+    <string name="radio_Coklu">Multiple Devices(Baby-Parent)</string>
+    <string name="radio_Tekli">Single Device(Baby)</string>
+    <string name="btn_Sec">Choose</string>
+    <string name="radio_SMS">Alert via SMS</string>
+    <string name="radio_Arama">Alert via call</string>
+    <string name="label_UyariTuru">Choose alert type:</string>
+    <string name="labelTelNo">Phone number to alert:</string>
+    <string name="btnBebekBaslat">Start Listening</string>
+    <string name="content">Image</string>    
+    <string name="stop_listening">Stop Listening</string>
+    <string name= "sms_body">Your baby is awake or something makes noise happened in his/her room, check your baby!</string>
     <string name="ustbaslikBebekDinleme"></string>
-    <string name="txt_threshold_bilgi">Lütfen Eşik Seviyenizi Belirleyiniz</string>
+    <string name="txt_threshold_bilgi">Please determine the threshold level</string>
     <string name="defaultDecibelValue">100</string>
     
     

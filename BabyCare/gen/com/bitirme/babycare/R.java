@@ -209,26 +209,20 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int baby=0x7f060004;
-        public static final int btnBebekBaslat=0x7f06000e;
-        public static final int btn_Sec=0x7f060009;
-        public static final int content=0x7f06000f;
-        public static final int defaultDecibelValue=0x7f060015;
-        public static final int hello_world=0x7f060002;
-        public static final int labelTelNo=0x7f06000d;
-        public static final int label_UyariTuru=0x7f06000c;
-        public static final int make_connection=0x7f060006;
-        public static final int parrent=0x7f060003;
-        public static final int radio_Arama=0x7f06000b;
-        public static final int radio_Coklu=0x7f060007;
-        public static final int radio_SMS=0x7f06000a;
-        public static final int radio_Tekli=0x7f060008;
-        public static final int random_pass_is=0x7f060010;
-        public static final int sms_body=0x7f060012;
-        public static final int stop_listening=0x7f060011;
-        public static final int txt_threshold_bilgi=0x7f060014;
-        public static final int ustbaslikBebekDinleme=0x7f060013;
-        public static final int wait_connection=0x7f060005;
+        public static final int btnBebekBaslat=0x7f060009;
+        public static final int btn_Sec=0x7f060004;
+        public static final int content=0x7f06000a;
+        public static final int defaultDecibelValue=0x7f06000f;
+        public static final int labelTelNo=0x7f060008;
+        public static final int label_UyariTuru=0x7f060007;
+        public static final int radio_Arama=0x7f060006;
+        public static final int radio_Coklu=0x7f060002;
+        public static final int radio_SMS=0x7f060005;
+        public static final int radio_Tekli=0x7f060003;
+        public static final int sms_body=0x7f06000c;
+        public static final int stop_listening=0x7f06000b;
+        public static final int txt_threshold_bilgi=0x7f06000e;
+        public static final int ustbaslikBebekDinleme=0x7f06000d;
     }
     public static final class style {
         /** 

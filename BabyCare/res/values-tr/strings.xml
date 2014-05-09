@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BabyCare</string>
+    <string name="action_settings">Ayarlar</string>
+    <string name="radio_Coklu">Çoklu Cihaz Bağlantısı(Bebek-Ebeveyn)</string>
+    <string name="radio_Tekli">Tek Cihaz(Bebek)</string>
+    <string name="btn_Sec">Seç</string>
+    <string name="radio_SMS">SMS ile Uyar</string>
+    <string name="radio_Arama">Arama ile Uyar</string>
+    <string name="label_UyariTuru">Uyarı Türünü Seçiniz:</string>
+    <string name="labelTelNo">Uyarılacak Telefon No:</string>
+    <string name="btnBebekBaslat">Bebek Telsizini Başlat</string>
+    <string name="content">Image</string>    
+    <string name="stop_listening">Dinlemeyi Durdur!</string>
+    <string name= "sms_body">Bebeğiniz uyandı ya da odasında yüksek sese sebep olan bir şey oldu, lütfen kontrol ediniz!</string>
+    <string name="ustbaslikBebekDinleme"></string>
+    <string name="txt_threshold_bilgi">Lütfen Eşik Seviyenizi Belirleyiniz</string>
+    <string name="defaultDecibelValue">100</string>
+    
+    
+
+</resources>
