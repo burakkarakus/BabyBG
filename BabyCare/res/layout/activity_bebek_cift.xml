@@ -37,7 +37,7 @@
         android:layout_alignBaseline="@+id/OTP_connection"
         android:layout_alignBottom="@+id/OTP_connection"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="40dp"
-        android:text="@string/random_pass_is" />
+        android:layout_marginLeft="40dp"/>
+<!--         android:text="@string/random_pass_is" --> 
 
 </RelativeLayout>

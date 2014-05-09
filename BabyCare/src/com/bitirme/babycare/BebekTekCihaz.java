@@ -1,5 +1,7 @@
 package com.bitirme.babycare;
 
+import org.xml.sax.Parser;
+
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -73,16 +75,22 @@ public class BebekTekCihaz extends Activity {
 				str=txtNumara.getText().toString();
 				if(!str.matches("")){
 					if(selectedId==R.id.radioSMS){
-						Toast.makeText(getApplicationContext(), "SMS seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(),
+								getApplicationContext().getString(R.string.toastSMS)+txtNumara.getText(),
+								Toast.LENGTH_SHORT).show();
 					}
 					else if(selectedId==R.id.radioArama){
-						Toast.makeText(getApplicationContext(), "Arama seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(),
+								getApplicationContext().getString(R.string.toastArama)+txtNumara.getText(),
+								Toast.LENGTH_SHORT).show();
 					}
 				
 				startActivity(intent);
 				}
 				else{
-					Toast.makeText(getApplicationContext(), "Lütfen bir numara giriniz...", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(),
+							getApplicationContext().getString(R.string.toastUyari),
+							Toast.LENGTH_LONG).show();
 				return;
 			}
 			}
