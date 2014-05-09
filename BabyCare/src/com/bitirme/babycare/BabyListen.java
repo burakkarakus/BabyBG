@@ -316,11 +316,11 @@ public class BabyListen extends Activity{
 		stop();
 		
 		noiseBar.setProgress(0);
-		Toast.makeText(getApplicationContext(), "Program Dur aq", Toast.LENGTH_LONG).show();
+		Toast.makeText(getApplicationContext(), "Dinleme durduruldu.", Toast.LENGTH_LONG).show();
 	}
 	private void startListening() throws IllegalStateException, IOException
 	{
-		//isStop=false;
+		isStop=false;
 		start();
 		stopButton.setText("Dinlemeyi Durdur");
 		
