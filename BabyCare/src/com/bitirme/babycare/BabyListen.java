@@ -9,6 +9,7 @@ import javax.security.auth.PrivateCredentialPermission;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,7 +28,6 @@ public class BabyListen extends Activity{
 	
     private static final int POLL_INTERVAL = 300;
     
-
     /** running state **/
 
     private int mTickCount = 0;
@@ -35,11 +35,11 @@ public class BabyListen extends Activity{
     private boolean mActivated=false;
     private boolean isStop=true;
     private int level;
-    private Button stopButton;
-   
-    SeekBar seek;
-    ProgressBar noiseBar;
-    TextView tresholdText;
+    private Button stopButton;   
+    private SeekBar seek;
+    private ProgressBar noiseBar;
+    private TextView tresholdText;
+    private TextView startstopListening;
 
     /** config state **/
   
@@ -121,14 +121,13 @@ public class BabyListen extends Activity{
 		tresholdText = (TextView) findViewById(R.id.txt_trashold_level);
 		 noiseBar= (ProgressBar) findViewById(R.id.noiseBar);
 		stopButton = (Button) findViewById(R.id.btn_stop_baby_listening);
-		
+		startstopListening = (TextView) findViewById(R.id.startstopListening);
 		seek.setProgress(70);
 		tresholdText.setText("70");
 		 level= seek.getProgress();
 		tresholdText.setText(Integer.toString(level));
 		ChangeTresholdText(seek,tresholdText,noiseBar);
 		mSensor = new SoundMeter();
-		stopButton.setText("Dinlemeyi Baslat");
 		stopButton.setOnClickListener(new OnClickListener() {
 			
 			
@@ -309,20 +308,29 @@ public class BabyListen extends Activity{
 	}
 	
 	
+	
 	private void stopListening() throws IllegalStateException, IOException {
 		// TODO Auto-generated method stub
-		stopButton.setText("Dinlemeyi Baslat");
+		startstopListening.setText(R.string.start_listening);
+		stopButton.setBackgroundResource(R.drawable.play1pressed);
 		isStop=true;
 		stop();
 		
 		noiseBar.setProgress(0);
-		Toast.makeText(getApplicationContext(), "Dinleme durduruldu.", Toast.LENGTH_LONG).show();
+		Toast.makeText(getApplicationContext(),
+				getApplicationContext().getString(R.string.toastDinlemeDurdur),
+				Toast.LENGTH_LONG).show();
 	}
+	
 	private void startListening() throws IllegalStateException, IOException
 	{
 		isStop=false;
 		start();
-		stopButton.setText("Dinlemeyi Durdur");
+		Toast.makeText(getApplicationContext(),
+				getApplicationContext().getString(R.string.toastDinlemeBasla),
+				Toast.LENGTH_SHORT).show();
+		startstopListening.setText(R.string.stop_listening);
+		stopButton.setBackgroundResource(R.drawable.button_blue_stop);
 		
 	}
 }

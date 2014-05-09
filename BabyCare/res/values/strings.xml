@@ -11,12 +11,18 @@
     <string name="label_UyariTuru">Choose alert type:</string>
     <string name="labelTelNo">Phone number to alert:</string>
     <string name="btnBebekBaslat">Start Listening</string>
-    <string name="content">Image</string>    
+    <string name="content">Image</string>
+    <string name="start_listening">Start Listening</string>     
     <string name="stop_listening">Stop Listening</string>
     <string name= "sms_body">Your baby is awake or something makes noise happened in his/her room, check your baby!</string>
     <string name="ustbaslikBebekDinleme"></string>
     <string name="txt_threshold_bilgi">Please determine the threshold level</string>
     <string name="defaultDecibelValue">100</string>
+    <string name="toastUyari">Please enter a phone number</string>
+    <string name="toastSMS">SMS is chosen. Number: </string>
+    <string name="toastArama">Call is chosen. Number: </string>
+    <string name="toastDinlemeBasla">Listening is started</string>
+    <string name="toastDinlemeDurdur">Listening is stopped</string>
     
     
 
