@@ -180,7 +180,7 @@ public final class R {
         public static final int action_settings=0x7f090017;
         public static final int btnBebekTekBaslat=0x7f090013;
         public static final int btn_Sec=0x7f090015;
-        public static final int btn_stop_baby_listening=0x7f090000;
+        public static final int btn_stop_baby_listening=0x7f090001;
         public static final int icon_rehber=0x7f09000d;
         public static final int imgUstBaslik=0x7f090005;
         public static final int labelTelNo=0x7f090012;
@@ -191,9 +191,9 @@ public final class R {
         public static final int radioSMS=0x7f090010;
         public static final int radioTek=0x7f090016;
         public static final int radioUyariTuruGrup=0x7f09000e;
-        public static final int seekBar_treshhold=0x7f090001;
-        public static final int startstopListening=0x7f090008;
-        public static final int testButton=0x7f090007;
+        public static final int seekBar_treshhold=0x7f090000;
+        public static final int startstopListening=0x7f090007;
+        public static final int testButton=0x7f090008;
         public static final int textView2=0x7f09000b;
         public static final int txtBtnBebekBaslat=0x7f09000f;
         public static final int txtNumara=0x7f09000c;

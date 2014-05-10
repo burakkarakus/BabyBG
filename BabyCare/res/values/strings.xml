@@ -21,7 +21,7 @@
 
     <string name="test_button">Test it!</string>
 
-    <string name="toastUyari">Please enter a phone number</string>
+    <string name="toastUyari">Please enter a phone number with at least 10 digits</string>
     <string name="toastSMS">SMS is chosen. Number: </string>
     <string name="toastArama">Call is chosen. Number: </string>
     <string name="toastDinlemeBasla">Listening is started</string>

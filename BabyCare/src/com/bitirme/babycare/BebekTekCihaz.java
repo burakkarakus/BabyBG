@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.ScaleAnimation;
@@ -37,7 +38,7 @@ public class BebekTekCihaz extends Activity {
 		icon_rehber = (ImageButton)findViewById(R.id.icon_rehber);
 		btnBebekTekBaslat=(Button)findViewById(R.id.btnBebekTekBaslat);
 		txtNumara = (EditText) findViewById(R.id.txtNumara);
-		
+		txtNumara.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
 	    icon_rehber.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -73,7 +74,7 @@ public class BebekTekCihaz extends Activity {
 						
 				}
 				str=txtNumara.getText().toString();
-				if(!str.matches("")){
+				if(!str.matches("") && str.length()>11){
 					if(selectedId==R.id.radioSMS){
 						Toast.makeText(getApplicationContext(),
 								getApplicationContext().getString(R.string.toastSMS)+txtNumara.getText(),

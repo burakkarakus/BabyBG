@@ -5,17 +5,6 @@
     
     android:background="@drawable/babybackground" >
 
-    <Button
-        android:id="@+id/btn_stop_baby_listening"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="126dp"
-        android:fontFamily="sans-serif-condensed"
-        android:typeface="sans"
-		android:background="@drawable/play1pressed"/>
-
     <SeekBar
         android:id="@+id/seekBar_treshhold"
         android:layout_width="300dp"
@@ -74,23 +63,33 @@
         android:textSize="40sp" />
         <!--android:text="@string/ustbaslikBebekDinleme"-->
 
-    <Button
-        android:id="@+id/testButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="58dp"
-        android:background="@drawable/newbgshape"
-        android:text="@string/test_button" />
-
     <TextView
         android:id="@+id/startstopListening"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_stop_baby_listening"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="109dp"
         android:text="@string/start_listening" />
+
+    <Button
+        android:id="@+id/testButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekBar_treshhold"
+        android:layout_marginRight="36dp"
+        android:layout_toLeftOf="@+id/txtUstBaslik"
+        android:background="@drawable/newbgshape"
+        android:text="@string/test_button" />
+
+    <Button
+        android:id="@+id/btn_stop_baby_listening"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/startstopListening"
+        android:layout_alignRight="@+id/txtThresholdBilgi"
+        android:background="@drawable/play1pressed"
+        android:fontFamily="sans-serif-condensed"
+        android:typeface="sans" />
 
 </RelativeLayout>

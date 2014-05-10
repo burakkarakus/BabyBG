@@ -320,15 +320,15 @@ public class BabyListen extends Activity{
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
-		try {
-			stopListening();
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			stopListening();
+//		} catch (IllegalStateException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	
 	

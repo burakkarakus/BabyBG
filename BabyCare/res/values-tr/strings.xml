@@ -18,7 +18,7 @@
     <string name="ustbaslikBebekDinleme"></string>
     <string name="txt_threshold_bilgi">Lütfen Eşik Seviyenizi Belirleyiniz</string>
     <string name="defaultDecibelValue">100</string>
-    <string name="toastUyari">Lütfen bir numara giriniz</string>
+    <string name="toastUyari">Lütfen en az 10 haneli bir numara giriniz</string>
     <string name="toastSMS">Sms seçildi. Numara: </string>
     <string name="toastArama">Arama seçildi. Numara: </string>
     <string name="toastDinlemeBasla">Dinleme Başlatıldı</string>
