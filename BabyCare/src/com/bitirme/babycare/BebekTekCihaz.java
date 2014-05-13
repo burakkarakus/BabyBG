@@ -62,7 +62,7 @@ public class BebekTekCihaz extends Activity {
 				{
 					
 					intent.putExtra("number", txtNumara.getText().toString()); 
-					//Toast.makeText(getApplicationContext(), "Arama seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
+					//Toast.makeText(getApplicationContext(), "Arama seï¿½ildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
 				}
 				else if(selectedId==R.id.radioSMS)
 				{
@@ -70,11 +70,11 @@ public class BebekTekCihaz extends Activity {
 					intent.putExtra("message", getResources().getString(R.string.sms_body));
 					intent.putExtra("number", txtNumara.getText().toString());
 
-					//Toast.makeText(getApplicationContext(), "SMS seçildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
+					//Toast.makeText(getApplicationContext(), "SMS seï¿½ildi numara:"+txtNumara.getText(), Toast.LENGTH_SHORT).show();
 						
 				}
 				str=txtNumara.getText().toString();
-				if(!str.matches("") && str.length()>11){
+				if(!str.matches("") && str.length()>9){
 					if(selectedId==R.id.radioSMS){
 						Toast.makeText(getApplicationContext(),
 								getApplicationContext().getString(R.string.toastSMS)+txtNumara.getText(),

@@ -3,17 +3,14 @@ package com.bitirme.babycare;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
-
-
 import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,6 +31,8 @@ public class BabyListen extends Activity{
     private int mTickCount = 0;
     private int mHitCount=0;
     private boolean isStop=true;
+    private boolean isCall= false;
+    private boolean isExit=false;
     private int level;
 
 
@@ -223,19 +222,9 @@ public class BabyListen extends Activity{
 	}
 	private void sendSMS(String number, String message) {
        
-		
-        Intent sentIntent = new Intent("in.wptrafficanalyzer.activity.status.sent");
-
-        sentIntent.putExtra("number", number);
-        sentIntent.putExtra("status", 0);
-
-        Intent deliveredIntent = new Intent("in.wptrafficanalyzer.activity.status.delivered");
-        deliveredIntent.putExtra("number", number);
-        deliveredIntent.putExtra("status", 1);
-        PendingIntent piSent = PendingIntent.getActivity(getBaseContext(), 0, sentIntent, PendingIntent.FLAG_ONE_SHOT);
-        PendingIntent piDelivered = PendingIntent.getActivity(getBaseContext(), 0, deliveredIntent, PendingIntent.FLAG_ONE_SHOT);
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(number, null, message, piSent, piDelivered);
+		SmsManager smsMgr = SmsManager.getDefault();
+		  smsMgr.sendTextMessage(number, null, message, null, null);
+//
     }
 	@Override
     public void onResume() {
@@ -247,6 +236,8 @@ public class BabyListen extends Activity{
     public void onStop() {
             super.onStop();
             try {
+            	Log.i("Gokay","Home Button");
+            	isExit=true;
 				stopListening();
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
@@ -257,6 +248,12 @@ public class BabyListen extends Activity{
 			}
             
     }
+    @Override
+    protected void onRestart() {
+    	// TODO Auto-generated method stub
+    	super.onRestart();
+    	isExit=false;
+    }
 	
 	
 	private void start() throws IllegalStateException, IOException 
@@ -264,11 +261,13 @@ public class BabyListen extends Activity{
         mTickCount = 0;
         
         mHitCount = 0;
+        
         mSensor.start();
         
         
+        
         mHandler.postDelayed(mPollTask, POLL_INTERVAL);    
-        Log.i("deneme", "ikinci");
+ 
 	}
 
 	private void stop() throws IllegalStateException, IOException {
@@ -281,25 +280,21 @@ public class BabyListen extends Activity{
 
 	private void help() throws IllegalStateException, IOException
 	{
-
-		if(getIntent().getStringExtra("message") != null)
+		Timer mTimer= new Timer();
+		if(getIntent().getStringExtra("message") != null && !isCall)
 		{
 			sendSMS(getIntent().getStringExtra("number"), getIntent().getStringExtra("message"));
 			stopListening();
-		
-		}
-		else
-		{ 
-			Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+getIntent().getStringExtra("number")));
-			startActivity(intent);
-			stopListening();
-			        Timer mTimer= new Timer();
-			        Log.i("deneme", "sonraki 15 sn sonra");
-	        mTimer.schedule(new TimerTask() {			
+			Log.i("Gokay", "Mesaj yollandi");
+			isCall=true;
+			mTimer.schedule(new TimerTask() {			
 				@Override
 				public void run() {
 					try {
-						start();
+						if(!isExit){
+						startListening();
+						Log.i("Gokay", "Mesajdan 15 saniye sonra baslatildi");
+						}
 					} catch (IllegalStateException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -311,24 +306,74 @@ public class BabyListen extends Activity{
 				
 			}, 15000);
 			
+		
+		}
+		else
+		{ 
+			Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+getIntent().getStringExtra("number")));
+			startActivity(intent);
+			stopListening();
+			        
+			        Log.i("Gokay", "Arama yapildi");
+	        mTimer.schedule(new TimerTask() {			
+				@Override
+				public void run() {
+					try {
+						if(!isExit){
+						Log.i("Gokay", "Aramadan 15 saniye sonra baslatildi");
+						startListening();
+						}
+					} catch (IllegalStateException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+			}, 61000);
+			
 		}
 		
 
 
 	}
 	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-//		try {
-//			stopListening();
-//		} catch (IllegalStateException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+	    if ((keyCode == KeyEvent.KEYCODE_BACK))
+	    {
+	    	Log.i("Gokay", "Back Button");
+	    	try {
+	    		isExit=true;
+				stopListening();
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    
+	        finish();
+	    }	else if ((keyCode == KeyEvent.KEYCODE_HOME))
+    	{
+	    	Log.i("Gokay", "home Button");
+    	try {
+    		isExit=true;
+			stopListening();
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    
+        finish();}
+	    	
+	    return super.onKeyDown(keyCode, event);
 	}
 	
 	
@@ -349,12 +394,22 @@ public class BabyListen extends Activity{
 	private void startListening() throws IllegalStateException, IOException
 	{
 		isStop=false;
+		
+		runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				startstopListening.setText(R.string.stop_listening);
+				stopButton.setBackgroundResource(R.drawable.button_blue_stop);
+				Toast.makeText(getApplicationContext(),
+						getApplicationContext().getString(R.string.toastDinlemeBasla),
+						Toast.LENGTH_SHORT).show();
+			}
+		});		
+		
 		start();
-		Toast.makeText(getApplicationContext(),
-				getApplicationContext().getString(R.string.toastDinlemeBasla),
-				Toast.LENGTH_SHORT).show();
-		startstopListening.setText(R.string.stop_listening);
-		stopButton.setBackgroundResource(R.drawable.button_blue_stop);
+		
 		
 	}
 }
